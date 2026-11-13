@@ -121,7 +121,7 @@
             <Property name="text" type="java.lang.String" value="Senha:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txt_senha">
+        <Component class="javax.swing.JPasswordField" name="txt_senha">
         </Component>
         <Component class="javax.swing.JToggleButton" name="bt_Login">
           <Properties>

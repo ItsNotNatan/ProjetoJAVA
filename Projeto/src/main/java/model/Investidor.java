@@ -1,13 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package model;
 
-/**
- *
- * @author PCGaMeR
- */
+/** Representa o investidor autenticado e sua carteira. */
 public class Investidor extends Pessoa {
     private Carteira carteira;
 
@@ -17,5 +10,10 @@ public class Investidor extends Pessoa {
     }
 
     public Carteira getCarteira() { return carteira; }
-    public void setCarteira(Carteira carteira) { this.carteira = carteira; }
+    public void setCarteira(Carteira carteira) {
+        if (carteira == null) {
+            throw new IllegalArgumentException("A carteira não pode ser nula.");
+        }
+        this.carteira = carteira;
+    }
 }

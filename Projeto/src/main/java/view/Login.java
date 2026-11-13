@@ -1,13 +1,19 @@
 package view;
 
 import controller.LoginController;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import model.Investidor;
 
+/** Tela de autenticação do investidor. Os componentes são mantidos pelo GUI Builder do NetBeans. */
 public class Login extends javax.swing.JFrame {
 
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(Login.class.getName());
+    private static final long serialVersionUID = 1L;
 
     public Login() {
         initComponents();
+        setTitle("Exchange de Criptomoedas - Login");
+        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -19,7 +25,7 @@ public class Login extends javax.swing.JFrame {
         txt_cpf = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txt_senha = new javax.swing.JTextField();
+        txt_senha = new javax.swing.JPasswordField();
         bt_Login = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -97,31 +103,47 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txt_cpfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txt_cpfActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_cpfActionPerformed
+    private void txt_cpfActionPerformed(java.awt.event.ActionEvent evt) {
+        // Permite pressionar Enter no campo CPF; o botão continua sendo o fluxo principal.
+    }
 
-    private void bt_LoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_LoginActionPerformed
-        String cpf = txt_cpf.getText();
-        String senha = txt_senha.getText();
+    private void bt_LoginActionPerformed(java.awt.event.ActionEvent evt) {
+        String cpf = txt_cpf.getText().trim();
+        String senha = new String(txt_senha.getPassword());
 
-        System.out.println(cpf + senha);
+        try {
+            LoginController controller = new LoginController();
+            Investidor investidor = controller.fazerLogin(cpf, senha);
 
-        LoginController controller = new LoginController(this);
-        controller.fazerLogin(cpf, senha);
-    }//GEN-LAST:event_bt_LoginActionPerformed
+            if (investidor == null) {
+                JOptionPane.showMessageDialog(this,
+                        "CPF ou senha não encontrados.", "Falha no login", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
 
-    public static void main(String args[]) {
+            Menu menu = new Menu(investidor);
+            menu.setVisible(true);
+            dispose();
+        } catch (IllegalArgumentException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage(), "Dados inválidos", JOptionPane.WARNING_MESSAGE);
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this,
+                    "Não foi possível acessar o banco de dados. Confira o PostgreSQL, o banco 'moeda' e as configurações de conexão.\n\nDetalhes: " + ex.getMessage(),
+                    "Erro de conexão", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public static void main(String[] args) {
         java.awt.EventQueue.invokeLater(() -> new Login().setVisible(true));
     }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify
     private javax.swing.JToggleButton bt_Login;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txt_cpf;
-    private javax.swing.JTextField txt_senha;
-    // End of variables declaration//GEN-END:variables
+    private javax.swing.JPasswordField txt_senha;
+    // End of variables declaration
 }
