@@ -105,7 +105,8 @@ public class Login extends javax.swing.JFrame {
         String cpf = txt_cpf.getText();
         String senha = txt_senha.getText();
 
-        // Chama o Controller e manda-o fazer o login
+        System.out.println(cpf + senha);
+
         LoginController controller = new LoginController(this);
         controller.fazerLogin(cpf, senha);
     }//GEN-LAST:event_bt_LoginActionPerformed

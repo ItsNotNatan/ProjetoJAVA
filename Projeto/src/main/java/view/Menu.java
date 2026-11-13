@@ -11,7 +11,7 @@ public class Menu extends javax.swing.JFrame {
     private model.Investidor investidorLogado;
 
     public Menu(model.Investidor investidor) {
-initComponents(); 
+        initComponents(); 
         
         // Força a janela a ter 700 pixels de largura por 500 de altura
         this.setSize(700, 500);
@@ -29,7 +29,7 @@ initComponents();
     }
 
     @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
         jToggleButton2 = new javax.swing.JToggleButton();
@@ -187,9 +187,9 @@ initComponents();
                     .addComponent(jToggleButton8))
                 .addGap(53, 53, 53))
         );
-    }// </editor-fold>//GEN-END:initComponents
+    }// </editor-fold>                          
 
-    private void bt_saldoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bt_saldoActionPerformed
+    private void bt_saldoActionPerformed(java.awt.event.ActionEvent evt) {                                         
 // Pede a senha
         String senhaDigitada = javax.swing.JOptionPane.showInputDialog(this, "Digite sua senha de 6 dígitos para revelar o saldo:");
 
@@ -212,9 +212,9 @@ initComponents();
         } else if (senhaDigitada != null) {
             javax.swing.JOptionPane.showMessageDialog(this, "Senha incorreta!", "Erro", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_bt_saldoActionPerformed
+    }                                        
 
-    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton3ActionPerformed
+    private void jToggleButton3ActionPerformed(java.awt.event.ActionEvent evt) {                                               
         try {
             // Pede o valor ao utilizador
             String valorStr = javax.swing.JOptionPane.showInputDialog(this, "Digite o valor em Reais para depositar:");
@@ -241,9 +241,9 @@ initComponents();
         } catch (NumberFormatException e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Valor inválido! Digite apenas números.", "Erro", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_jToggleButton3ActionPerformed
+    }                                              
 
-    private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton7ActionPerformed
+    private void jToggleButton7ActionPerformed(java.awt.event.ActionEvent evt) {                                               
         try {
             String valorStr = javax.swing.JOptionPane.showInputDialog(this, "Digite o valor em Reais para sacar:");
 
@@ -272,9 +272,9 @@ initComponents();
         } catch (NumberFormatException e) {
             javax.swing.JOptionPane.showMessageDialog(this, "Valor inválido! Digite apenas números.", "Erro", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_jToggleButton7ActionPerformed
+    }                                              
 
-    private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton6ActionPerformed
+    private void jToggleButton6ActionPerformed(java.awt.event.ActionEvent evt) {                                               
         java.util.Random gerador = new java.util.Random();
 
         // A matemática para gerar uma variação entre -0.05 (-5%) e +0.05 (+5%)
@@ -290,9 +290,9 @@ initComponents();
         // Mostra os novos valores formatados
         String mensagem = String.format("Novas Cotações:\n\nBitcoin: R$ %.2f\nEthereum: R$ %.2f\nRipple: R$ %.2f", cotacaoBtc, cotacaoEth, cotacaoXrp);
         javax.swing.JOptionPane.showMessageDialog(this, mensagem, "Cotações Atualizadas", javax.swing.JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_jToggleButton6ActionPerformed
+    }                                              
 
-    private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton4ActionPerformed
+    private void jToggleButton4ActionPerformed(java.awt.event.ActionEvent evt) {                                               
         // 1. Pede a senha
         String senha = javax.swing.JOptionPane.showInputDialog(this, "Digite sua senha de 6 dígitos para comprar:");
 
@@ -362,9 +362,9 @@ initComponents();
         } else if (senha != null) {
             javax.swing.JOptionPane.showMessageDialog(this, "Senha incorreta!", "Erro", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_jToggleButton4ActionPerformed
+    }                                              
 
-    private void jToggleButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton5ActionPerformed
+    private void jToggleButton5ActionPerformed(java.awt.event.ActionEvent evt) {                                               
         // 1. Pede a senha
         String senha = javax.swing.JOptionPane.showInputDialog(this, "Digite sua senha de 6 dígitos para vender:");
 
@@ -441,13 +441,13 @@ initComponents();
         } else if (senha != null) {
             javax.swing.JOptionPane.showMessageDialog(this, "Senha incorreta!", "Erro", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_jToggleButton5ActionPerformed
+    }                                              
 
-    private void jToggleButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton8ActionPerformed
+    private void jToggleButton8ActionPerformed(java.awt.event.ActionEvent evt) {                                               
         System.exit(0);
-    }//GEN-LAST:event_jToggleButton8ActionPerformed
+    }                                              
 
-    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                               
         // Pede a senha
         String senha = javax.swing.JOptionPane.showInputDialog(this, "Digite sua senha de 6 dígitos para ver o extrato:");
 
@@ -468,9 +468,9 @@ initComponents();
         } else if (senha != null) {
             javax.swing.JOptionPane.showMessageDialog(this, "Senha incorreta!", "Erro", javax.swing.JOptionPane.ERROR_MESSAGE);
         }
-    }//GEN-LAST:event_jToggleButton2ActionPerformed
+    }                                              
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    // Variables declaration - do not modify                     
     private javax.swing.JToggleButton bt_saldo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -488,5 +488,5 @@ initComponents();
     private javax.swing.JLabel lbl_Ethereum;
     private javax.swing.JLabel lbl_Ripple;
     private javax.swing.JLabel lbl_saldo;
-    // End of variables declaration//GEN-END:variables
+    // End of variables declaration                   
 }
